@@ -1,0 +1,9 @@
+name: ALICE
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.15
+  - pip=26.2.1
+  - notebook=7.6.3
+  - jupyterlab=4.6.4
+  - ipykernel=7.4.0

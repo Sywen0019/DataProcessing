@@ -4,7 +4,7 @@
 
 This repository contains Python data-processing coursework. `EXP01/EXP01.pdf` and `HW01/HW01.pdf` define the respective tasks. Keep each task's notebooks, helper modules, and generated data in its own directory. For example, place `student_utils.py` beside the EXP01 notebook and its data under `EXP01/exp01_data/`. Preserve the original PDFs.
 
-`README.md` provides the directory overview and setup instructions; the local `environment.yml` records the shared development environment. Check `git status` before describing files as available in a fresh clone: coursework notebooks, helper modules, generated data, and the environment file may exist locally without being tracked. There is currently no application package, dedicated test directory, or build pipeline.
+`README.md` provides the directory overview and setup instructions; `environment.yml` records the shared development environment. The repository includes both coursework notebooks, `EXP01/student_utils.py`, and the reproducible sample outputs in `EXP01/exp01_data/` (`students.txt`, `report.txt`, and `students.pkl`). Keep the README inventory consistent with tracked files. There is currently no application package, dedicated test directory, or build pipeline.
 
 ## Environment & Development Commands
 
@@ -20,7 +20,7 @@ Set-Location EXP01  # Use HW01 for the homework task.
 python -m jupyter lab
 ```
 
-Select `Python (ALICE)` in Jupyter or VS Code. Ensure the notebook working directory is its task directory so relative data paths and sibling imports resolve correctly. On another machine, first obtain `environment.yml` if it is not tracked, create the environment with `conda env create -f environment.yml`, then run `conda activate ALICE` and register its kernel:
+Select `Python (ALICE)` in Jupyter or VS Code. Ensure the notebook working directory is its task directory so relative data paths and sibling imports resolve correctly. On another machine, create the environment from the repository root with `conda env create -f environment.yml`, then run `conda activate ALICE` and register its kernel:
 
 ```powershell
 python -m ipykernel install --user --name alice --display-name "Python (ALICE)"

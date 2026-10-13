@@ -10,13 +10,13 @@ Python 数据处理课程资料与练习，使用 Python 3.12 和 Jupyter Notebo
 | `HW01/HW01.pdf` | 作业一任务说明，保留原始文件 |
 | `AGENTS.md` | 仓库维护、编码与验证约定 |
 
-每项任务的 Notebook、辅助模块和生成数据均放在对应目录内。当前本地工作区还包含以下文件，尚未纳入版本控制，本次文档提交不包含它们：
+每项任务的 Notebook、辅助模块和生成数据均放在对应目录内，仓库包含：
 
 - `EXP01/20244081107_罗文希_exp01.ipynb`：基本运算、函数与递归、容器与统计、文件与异常、类与对象复制。
 - `EXP01/student_utils.py`：学生成绩记录解析函数。
 - `EXP01/exp01_data/`：实验生成的文本、统计报告和 pickle 数据。
 - `HW01/20244081107_罗文希_hw01.ipynb`：最大公约数、欧拉数近似和整数幂判断等练习。
-- `environment.yml`：本地 ALICE 环境配置。
+- `environment.yml`：共享的 ALICE 环境配置。
 
 ## 开发环境
 
@@ -38,7 +38,7 @@ python -m jupyter lab
 python -m ipykernel install --user --name alice --display-name "Python (ALICE)"
 ```
 
-在其他机器上，先取得本地的 `environment.yml`，再运行 `conda env create -f environment.yml`、`conda activate ALICE` 并注册内核；仅克隆当前仓库不会获得该环境文件。
+在其他机器上，克隆仓库后从根目录运行 `conda env create -f environment.yml`、`conda activate ALICE` 并注册内核。若已有 ALICE 环境，先检查并复用它。
 
 ## 运行与提交
 
