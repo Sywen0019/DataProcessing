@@ -19,7 +19,7 @@ Notebook 使用 `20244081107_罗文希_expXX.ipynb` 或 `20244081107_罗文希_h
 
 EXP02 的图表直接内嵌显示，数据在内存中处理。HW02 的矩阵乘法采用行向量乘矩阵的约定。
 
-EXP03 的 HTML 示例直接写在 Notebook 中。HW03 的输入文件为 `archive/iris.csv`，同时保留原始数据压缩包 `archive.zip`。代码优先读取任务目录中的 `iris.csv`，不存在时读取归档目录中的文件。
+EXP03 的 HTML 示例直接写在 Notebook 中。HW03 的输入文件为 `archive/iris.csv`。代码优先读取任务目录中的 `iris.csv`，不存在时读取归档目录中的文件。
 
 HW03 原始 CSV 缺少种类列，并包含测量缺失值。Notebook 核对行数、索引和测量差异后，按原始顺序从 scikit-learn 的 Iris 数据补入种类标签；先完成题目指定的两行修正，再参考作者“Cleaning Dataset”部分用 `dropna()` 删除剩余缺失行。清洗后保留148行，继续计算比例特征、导出 `HW03/iris_corrected.csv`（148行、7列），并按花卉种类完成五项分组统计。
 
@@ -55,7 +55,7 @@ python -m jupyter lab
 
 仓库保留 README、`.gitignore`、任务 Notebook、Python 辅助模块及输入输出数据。题目 PDF、`AGENTS.md`、环境配置、缓存和编辑器设置保存在本地或由忽略规则排除。
 
-任务目录使用 `EXPxx/` 和 `HWxx/` 格式，其中 `xx` 为两位编号。输入输出放入任务下的 `*_data/`、`data/`、`input/`、`output/`、`inputs/` 或 `outputs/` 目录。规则另允许 `HW03/archive/` 和 `HW03/archive.zip`，用于保存作业三原始数据，并允许提交生成的 `HW03/iris_corrected.csv`。
+任务目录使用 `EXPxx/` 和 `HWxx/` 格式，其中 `xx` 为两位编号。输入输出放入任务下的 `*_data/`、`data/`、`input/`、`output/`、`inputs/` 或 `outputs/` 目录。规则另允许 `HW03/archive/`，用于保存作业三原始数据，并允许提交生成的 `HW03/iris_corrected.csv`。
 
 新增任务或数据后同步更新本页目录，并通过 `git status` 检查待提交文件。需要使用其他数据路径时，在 `.gitignore` 中添加对应规则。
 

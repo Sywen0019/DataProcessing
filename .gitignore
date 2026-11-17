@@ -9,6 +9,7 @@
 !/EXP[0-9][0-9]/**/*.py
 !/HW[0-9][0-9]/**/*.ipynb
 !/HW[0-9][0-9]/**/*.py
+/HW03/grady-is-the-best-teacher-ever.ipynb
 
 # Coursework input and output directories.
 !/EXP[0-9][0-9]/**/*_data/**
@@ -24,7 +25,6 @@
 !/EXP[0-9][0-9]/**/outputs/**
 !/HW[0-9][0-9]/**/outputs/**
 !/HW03/archive/**
-!/HW03/archive.zip
 !/HW03/iris_corrected.csv
 
 # Exclude generated caches and local settings even inside allowed directories.
