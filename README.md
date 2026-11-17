@@ -1,56 +1,63 @@
 # Python_Data_Processing
 
-Python 数据处理课程资料与练习，使用 Python 3.12 和 Jupyter Notebook。
+Python 数据处理课程练习，使用 Python 3.12 和 Jupyter Notebook。作者为罗文希，学号为 `20244081107`。
 
 ## 目录
 
-| 路径 | 内容 |
+| 目录 | 内容 |
 | --- | --- |
-| `EXP01/EXP01.pdf` | 实验一任务说明，保留原始文件 |
-| `HW01/HW01.pdf` | 作业一任务说明，保留原始文件 |
-| `AGENTS.md` | 仓库维护、编码与验证约定 |
+| `EXP01/` | 基本运算、函数与递归、容器与统计、文件与异常、类与对象复制 |
+| `HW01/` | 最大公约数、欧拉数近似和整数幂判断等练习 |
+| `EXP02/` | NumPy 数组与抽样、SciPy 数值计算、Matplotlib 绘图和 pandas 统计 |
+| `HW02/` | 字符串与列表、向量与矩阵运算、Vector 类 |
 
-每项任务的 Notebook、辅助模块和生成数据均放在对应目录内，仓库包含：
+Notebook 使用 `20244081107_罗文希_expXX.ipynb` 或 `20244081107_罗文希_hwXX.ipynb` 命名，放在对应任务目录中。
 
-- `EXP01/20244081107_罗文希_exp01.ipynb`：基本运算、函数与递归、容器与统计、文件与异常、类与对象复制。
-- `EXP01/student_utils.py`：学生成绩记录解析函数。
-- `EXP01/exp01_data/`：实验生成的文本、统计报告和 pickle 数据。
-- `HW01/20244081107_罗文希_hw01.ipynb`：最大公约数、欧拉数近似和整数幂判断等练习。
-- `EXP02/20244081107_罗文希_exp02.ipynb`：NumPy 数组与抽样、SciPy 数值计算、Matplotlib 绘图、pandas 分组统计、协方差与相关系数。
-- `HW02/20244081107_罗文希_hw02.ipynb`：字符串与列表处理、元组向量与矩阵运算，以及 Vector 类的比较、内积和乘法。
-- `environment.yml`：共享的 ALICE 环境配置。
+`EXP01/student_utils.py` 提供学生成绩记录解析函数。`EXP01/exp01_data/` 包含 `students.txt`、`report.txt` 和 `students.pkl`，用于展示文件输入输出。
 
-EXP02 和 HW02 已补全代码，并在 ALICE 中从头顺序执行，分别包含 24 和 11 个代码单元格，运行输出已保留。EXP02 的三张图表直接内嵌显示；HW02 的矩阵乘法采用行向量乘矩阵的约定。
+EXP02 的图表直接内嵌显示，数据在内存中处理。HW02 的矩阵乘法采用行向量乘矩阵的约定。
 
 ## 开发环境
 
-本机复用 Conda 环境 `ALICE`，路径为 `Z:\Anaconda\anaconda\envs\ALICE`，不要自动删除或重建。环境目录应放在仓库之外。
+使用 Python 3.12 的 Conda 环境 `ALICE`。本机环境位于 `Z:\Anaconda\anaconda\envs\ALICE`，已有环境应先检查并复用，环境目录放在仓库之外。
 
-在仓库根目录打开 PowerShell，执行：
+新机器首次配置时运行以下命令。
+
+```powershell
+conda create -n ALICE python=3.12 pip
+conda activate ALICE
+python -m pip install jupyterlab notebook ipykernel numpy scipy matplotlib pandas
+python -m ipykernel install --user --name alice --display-name "Python (ALICE)"
+python -m pip check
+```
+
+上述命令安装依赖的可用版本，具体结果可能随版本变化。本地维护的 `environment.yml` 可用于记录精确版本，该文件保存在本地。
+
+每次运行时，在仓库根目录打开 PowerShell。
 
 ```powershell
 conda activate ALICE
 python -c "import os, sys; print(sys.executable); print(os.environ.get('CONDA_DEFAULT_ENV'))"
 python -m pip check
-Set-Location EXP01  # 按任务改为 HW01、EXP02 或 HW02
+Set-Location EXP01  # 按任务替换目录
 python -m jupyter lab
 ```
 
-确认解释器指向 ALICE，且环境名称为 `ALICE`；如不一致，先检查环境激活状态。在 Jupyter 或 VS Code 中选择 `Python (ALICE)` 内核。若尚未注册内核，在已激活的环境中执行：
+确认解释器指向 ALICE，且环境名称为 `ALICE`。在 Jupyter 或 VS Code 中选择 `Python (ALICE)` 内核，并将工作目录设为对应任务目录，使相对路径和辅助模块导入正确。
 
-```powershell
-python -m ipykernel install --user --name alice --display-name "Python (ALICE)"
-```
+## GitHub 文件范围
 
-在其他机器上，克隆仓库后从根目录运行 `conda env create -f environment.yml`、`conda activate ALICE` 并注册内核。若已有 ALICE 环境，先检查并复用它。
+仓库保留 README、`.gitignore`、任务 Notebook、Python 辅助模块及输入输出数据。题目 PDF、`AGENTS.md`、环境配置、缓存和编辑器设置保存在本地或由忽略规则排除。
 
-实验二使用 NumPy、SciPy、Matplotlib 和 pandas，已在 `environment.yml` 的 pip 依赖中记录验证版本。已有 ALICE 环境缺少这些包时，可在激活环境后执行 `python -m pip install numpy==2.5.4 scipy==1.18.1 matplotlib==3.11.2 pandas==3.0.6`，再运行 `python -m pip check`。实验二数据均在内存中处理，不生成数据或图片文件；图表使用英文标题和标签，无需额外配置中文字体。
+任务目录使用 `EXPxx/` 和 `HWxx/` 格式，其中 `xx` 为两位编号。输入输出放入任务下的 `*_data/`、`data/`、`input/`、`output/`、`inputs/` 或 `outputs/` 目录。规则另允许 `HW03/archive/` 和 `HW03/archive.zip`，用于后续纳入作业三原始数据。
+
+新增任务或数据后同步更新本页目录，并通过 `git status` 检查待提交文件。需要使用其他数据路径时，在 `.gitignore` 中添加对应规则。
 
 ## 运行与提交
 
-1. 打开对应任务的 Notebook，按 Markdown 单元格中的要求完成练习。
-2. 将 Notebook 工作目录设为任务目录，使辅助模块导入和数据相对路径正确。
-3. 提交前重启内核并按顺序运行全部单元格，检查预期结果、边界输入、异常处理和生成文件。
-4. 按 `<student_id>_<name>_expNN.ipynb` 或 `<student_id>_<name>_hwNN.ipynb` 命名，其中 `NN` 为两位任务编号；保留原有 Markdown 任务描述，在对应代码单元格中完成要求。
+1. 打开对应任务的 Notebook，按 Markdown 单元中的题目要求完成练习。
+2. 从干净内核按顺序运行全部单元，检查结果、边界输入、预期异常和文件路径。
+3. 保留真实执行输出，文本文件使用 UTF-8，代码使用四空格缩进。
+4. 提交前检查 Git 差异，确认 Notebook 所需辅助模块及输入输出文件齐全。
 
-目前没有独立测试目录、自动化测试框架或构建流程。代码采用四空格缩进，文本文件使用 UTF-8；提交前检查 Git 差异，避免纳入环境目录、缓存、检查点和敏感信息。详细协作规范见 [AGENTS.md](AGENTS.md)。
+目前没有独立测试目录、自动化测试框架或构建流程。Notebook 的完整执行是课程代码的主要验证方式。
